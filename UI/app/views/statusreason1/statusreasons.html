@@ -1,0 +1,17 @@
+﻿statusreason
+
+<button type="button" ng-click="deleteClientModel(this)" class="btn btn-sm btn-success">
+    <i class="glyphicon glyphicon-plus">
+    </i> Add
+</button>
+
+<script type="text/ng-template" id="DeleteConfirmationModalContent.html">
+
+    <div class="modal-body">
+        <h5>Are you sure you want to delte this item?</h5>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Delete</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>

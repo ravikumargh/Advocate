@@ -1,0 +1,154 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.min.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- <link href="vendor.e34301de.css" rel="stylesheet" /> -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link href="styles/starter-template.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/mainstyle.css">
+    <!-- endbuild -->
+    <!--<link rel="stylesheet" href="styles/main.css">-->
+</head>
+<body ng-app="yeomanApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <div class="container-fluid" data-ng-controller="indexController">
+        <div class="header" ng-include="'views/menu.html'"
+             ng-controller="MenuCtrl">
+        </div>
+        <div ui-view></div>
+        <div ng-view=""></div>
+        <div class="footer">
+
+        </div>
+    </div>
+
+
+    <!--<div class="footer">
+      <div class="container">
+        <p>@ Copy right 2015 </p>
+      </div>
+    </div>-->
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+        !function (A, n, g, u, l, a, r) {
+            A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+                (A[l].q = A[l].q || []).push(arguments)
+            }, A[l].l = +new Date, a = n.createElement(g),
+            r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+        }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/ng-table/dist/ng-table.min.js"></script>
+    <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/jquery-infinite-scroll/jquery.infinitescroll.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script src="vendor.21e4b8a2.js"></script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="app.js"></script>
+    <script src="scripts/controllers/indexController.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/carrier.js"></script>
+    <script src="scripts/controllers/contact-us.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/menu.js"></script>
+    <script src="scripts/controllers/party-workers.js"></script>
+    <script src="scripts/controllers/people-issues.js"></script>
+    <script src="scripts/controllers/services.js"></script>
+    <script src="views/department/department-controller.js"></script>
+
+    <script src="scripts/services/authInterceptorService.js"></script>
+    <script src="scripts/services/services.js"></script>
+
+    <script src="service/status.service.js"></script>
+    <script src="views/status/status.controller.js"></script>
+    <script src="views/status/status.js"></script>
+
+    <script src="views/statusreason/statusreason.controller.js"></script>
+    <script src="views/statusreason/statusreason.js"></script>
+
+    <script src="service/user.service.js"></script>
+    <script src="views/user/user.controller.js"></script>
+    <script src="views/user/user.js"></script>
+
+    <script src="service/client.service.js"></script>
+    <script src="views/client/client.controller.js"></script>
+    <script src="views/client/client.js"></script>
+
+    <script src="views/admin/adminmenu.controller.js"></script>
+    <script src="views/admin/admin.js"></script>
+    <script src="views/admin/admin.controller.js"></script>
+
+    <script src="views/survey/surveymenu.controller.js"></script>
+    <script src="views/survey/survey.js"></script>
+    <script src="views/survey/survey.controller.js"></script>
+
+    <script src="service/department.service.js"></script>
+    <script src="views/department/department-controller.js"></script>
+    <script src="views/department/department.js"></script>
+
+    <script src="service/role.service.js"></script>
+    <script src="views/role/role.controller.js"></script>
+    <script src="views/role/role.js"></script>
+
+    <script src="service/status.service.js"></script>
+    <script src="views/status/status.controller.js"></script>
+    <script src="views/status/status.js"></script>
+
+    <script src="service/statusreason.service.js"></script>
+    <script src="views/statusreason/statusreason.controller.js"></script>
+    <script src="views/statusreason/statusreason.js"></script>
+
+    <script src="service/surveytype.service.js"></script>
+    <script src="views/surveytype/surveytype.controller.js"></script>
+    <script src="views/surveytype/surveytype.js"></script>
+
+    <script src="service/clienttype.service.js"></script>
+    <script src="views/clienttype/clienttype.controller.js"></script>
+    <script src="views/clienttype/clienttype.js"></script>
+
+    <script src="service/serviceticket.service.js"></script>
+    <script src="views/serviceticket/serviceticket.controller.js"></script>
+    <script src="views/serviceticket/serviceticket.js"></script>
+
+    <script src="service/team.service.js"></script>
+    <script src="views/team/team.controller.js"></script>
+    <script src="views/team/team.js"></script>
+
+    <!-- endbuild -->
+    <!--<script src="service/status.service.js"></script>-->
+</body>
+</html>
