@@ -28,5 +28,7 @@ namespace WebApi.Models
     
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<ContentType> ContentTypes { get; set; }
+        public virtual DbSet<Image> Images { get; set; }
     }
 }

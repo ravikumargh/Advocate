@@ -252,7 +252,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdvocateModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContentType.cs">
+      <DependentUpon>AdvocateModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Image.cs">
+      <DependentUpon>AdvocateModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Role.cs">
       <DependentUpon>AdvocateModel.tt</DependentUpon>
     </Compile>
@@ -265,6 +271,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\AdvocateScript.sql" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -347,9 +354,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
