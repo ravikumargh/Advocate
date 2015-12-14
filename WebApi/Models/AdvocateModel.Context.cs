@@ -18,6 +18,7 @@ namespace WebApi.Models
         public AdvocateEntities()
             : base("name=AdvocateEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

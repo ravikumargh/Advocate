@@ -8,12 +8,11 @@
  * Controller of the yeomanApp
  */
 angular.module('yeomanApp')
-  .controller('UserController', ['$scope', 'UserService', '$uibModal', '$log', 'RoleService', 'TeamService', function ($scope, UserService, $uibModal, $log, RoleService, TeamService) {
+  .controller('UserController', ['$scope', 'UserService', '$uibModal', '$log', 'RoleService', function ($scope, UserService, $uibModal, $log, RoleService) {
 
       $scope.newuser = {
           'Name': '',
           'Email': '',
-          'TeamId': '',
           'RoleId': '',
           'PhoneNumber': '',
           'Address': ''
@@ -41,15 +40,6 @@ angular.module('yeomanApp')
 
               });
 
-          $scope.teams = null;
-          TeamService.getTeams()
-              .then(function (response) {
-                  $scope.teams = response.data;
-              },
-              function (err) {
-
-              });
-
       };
 
       $scope.getRoleDetails = function (rowObj) {
@@ -57,12 +47,7 @@ angular.module('yeomanApp')
               return role.Id ===rowObj.user.RoleId;
           });
       };
-      $scope.getTeamDetails = function (rowObj) {
-          return _.find($scope.teams, function(team) {
-              return team.Id ===rowObj.user.TeamId;
-          });
-      };
-
+      
       $scope.deleteUser = function (user) {
           UserService.deleteUser(user.Id).then(function (response) {
               //_.remove($scope.users, function (user) {
@@ -149,8 +134,8 @@ angular.module('yeomanApp')
           $scope.selectedUser = user;
           var modalInstance = $uibModal.open({
               animation: $scope.animationsEnabled,
-              templateUrl: 'DeleteConfirmationModalContent.html',
-              controller: 'DeleteConfirmationModalInstanceControl',
+              templateUrl: 'UserDeleteConfirmationModalContent.html',
+              controller: 'UserDeleteConfirmationModalInstanceControl',
               size: 'sm', 
               animation: true,
               resolve: {
@@ -173,7 +158,6 @@ angular.module('yeomanApp').controller('UserModalInstanceCtrl', function ($scope
 
     $scope.selectedUser = parentScope.selectedUser;
     $scope.roles = parentScope.roles;
-    $scope.teams = parentScope.teams;
     
     $scope.ok = function () {
         console.log($scope.selectedUser);
@@ -185,7 +169,7 @@ angular.module('yeomanApp').controller('UserModalInstanceCtrl', function ($scope
     };
 });
 
-angular.module('yeomanApp').controller('DeleteConfirmationModalInstanceControl', function ($scope, $uibModalInstance, parentScope) {
+angular.module('yeomanApp').controller('UserDeleteConfirmationModalInstanceControl', function ($scope, $uibModalInstance, parentScope) {
 
     $scope.selectedUser = parentScope.selectedUser;
 

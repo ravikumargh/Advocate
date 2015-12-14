@@ -1,49 +1,39 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" >
     <div class="container-fluid">
-
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <a class="navbar-brand" href="index.html">  <img src="images/logo.png" alt="logo"></a>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li  ><a   href="#">Logo</a></li>
-
-               <li><a href="#/survey/serviceticket" ng-click="menuClick()">Survey <span class="sr-only">(current)</span></a></li>
-                <li><a ng-href="#/admin" ng-click="menuClick()">Admin</a></li>
-
-               <!--   <li class="active"><a ng-href="#/services" ng-click="menuClick()">Services</a></li>
-                <li><a ng-href="#/contact-us" ng-click="menuClick()">Contact us</a></li>
-                <li><a ng-href="#/carrier" ng-click="menuClick()">Carrier</a></li> -->
-            </ul>
-            <ul class="nav navbar-nav" data-ng-hide="!authentication.isAuth">
-                <!-- <li><a ng-href="#/partyWorkers" ng-click="menuClick()">Issues</a></li> -->
-                <!-- <li><a ng-href="#/PeopleIssues" ng-click="menuClick()">People issues</a></li> -->
-                <!--<li data-ng-hide="!authentication.isAuth"><a ng-href="#/services" ng-click="menuClick()">Admin</a></li>-->
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="icon-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" ng-click="menuClick()">Roles</a></li>
-                        <li><a href="#/register" ng-click="menuClick()">Users</a></li>
-                        <li><a href="#" ng-click="menuClick()">ActDepartmention1</a></li>
+                        <li><a href="career.html">Career</a></li>
+                        <li><a href="blog-item.html">Blog Single</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="404.html">404</a></li>
+                        <li><a href="registration.html">Registration</a></li>
+                        <li class="divider"></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
                     </ul>
                 </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <!--<li><a ng-href="#/login" ng-hide="$root.isAuthenticated" ng-click="menuClick()">Login</a></li>
-                <li><a ng-show="$root.isAuthenticated" ng-click="logout()" >Log out</a></li>-->
-                <!--<li data-ng-hide="authentication.isAuth"> <a href="#/register">Register</a></li>-->
-                <li data-ng-hide="authentication.isAuth"> <a href="#/login"  >Login</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+                <li><a ng-href="#/admin" ng-click="menuClick()">Admin</a></li>
+
+                <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
                 <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-<!--<li><a ng-href="#/about" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">About</a></li>-->
-
+        </div>
+    </div>
+ 

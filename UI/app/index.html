@@ -14,8 +14,15 @@
     <!-- endbuild -->
     <!-- <link href="vendor.e34301de.css" rel="stylesheet" /> -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link href="styles/starter-template.css" rel="stylesheet" />
-    <link rel="stylesheet" href="styles/mainstyle.css">
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/prettyPhoto.css" rel="stylesheet">
+    <link href="styles/animate.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/progress-bar.css" rel="stylesheet" />
+    <link href="styles/thumbnail.css" rel="stylesheet" />
+    <!--<link href="styles/starter-template.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/mainstyle.css">-->
     <!-- endbuild -->
     <!--<link rel="stylesheet" href="styles/main.css">-->
 </head>
@@ -25,15 +32,14 @@
     <![endif]-->
     <!-- Add your site or application content here -->
     <div class="container-fluid" data-ng-controller="indexController">
-        <div class="header" ng-include="'views/menu.html'"
-             ng-controller="MenuCtrl">
-        </div>
-        <div ui-view></div>
-        <div ng-view=""></div>
-        <div class="footer">
+        <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner" ng-include="'views/menu.html'" ng-controller="MenuCtrl" style="height: 97px;"></header>
 
-        </div>
-    </div>
+            <div ui-view></div>
+            <div ng-view=""></div>
+            <div class="footer">
+
+            </div>
+</div>
 
 
     <!--<div class="footer">

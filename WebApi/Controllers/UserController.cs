@@ -48,8 +48,10 @@ namespace WebApi.Controllers
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id)
+        public void Delete(long id)
         {
+            UserRepository.Delete(id);
+
         }
     }
 }

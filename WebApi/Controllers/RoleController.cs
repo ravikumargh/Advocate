@@ -20,10 +20,12 @@ namespace WebApi.Controllers
             this.roleRepository = roleRepository;
         }
         // GET: api/Role
-        public IEnumerable<Role> Get()
+        public HttpResponseMessage Get()
         {
             //return new string[] { "value1", "value2" };
-            return roleRepository.GetAll();
+            //return roleRepository.GetAll();
+
+            return Request.CreateResponse(HttpStatusCode.OK, roleRepository.GetAll());
         }
 
         // GET: api/Role/5
@@ -35,13 +37,15 @@ namespace WebApi.Controllers
         // POST: api/Role
         public void Post(Role role)
         {
-            //roleRepository.Add(role);
+             roleRepository.Add(role);
 
         }
 
         // PUT: api/Role/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(Role role)
         {
+            roleRepository.Update(role);
+
         }
 
         // DELETE: api/Role/5

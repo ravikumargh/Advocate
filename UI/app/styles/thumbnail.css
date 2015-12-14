@@ -1,0 +1,148 @@
+﻿
+.thumbnails {
+    margin-left: -20px;
+    list-style: none;
+    *zoom: 1;
+}
+
+    .thumbnails:before, .thumbnails:after {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
+
+    .thumbnails:after {
+        clear: both;
+    }
+
+.row-fluid .thumbnails {
+    margin-left: 0;
+}
+
+.thumbnails > li {
+    float: left;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.thumbnail {
+    display: block;
+    padding: 4px;
+    line-height: 20px;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+a.thumbnail:hover, a.thumbnail:focus {
+    border-color: #0088cc;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+
+.thumbnail > img {
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.thumbnail .caption {
+    padding-left:25px  ;
+    color: #555555;
+}
+.callout {padding:20px;}
+.callout h3 {
+width:80px;
+height:80px;
+float:left;
+text-indent:-8008px;
+}
+.maleAvtar{
+background:transparent url(../images/male.png) no-repeat 0 0;
+}
+.femaleAvtar{
+background:transparent url(../images/female.png) no-repeat 0 0;
+}
+
+.span3 {
+    width: 220px;
+}
+@media (min-width:1200px) {
+     
+    .thumbnails {
+        margin-left: -30px;
+    }
+
+        .thumbnails > li {
+            margin-left: 30px;
+        }
+
+    .row-fluid .thumbnails {
+        margin-left: 0;
+    }
+    .span3 {
+        width: 270px;
+    }
+    .rowhead{
+        margin-left:40px;
+    }
+    .seeAll{
+        padding-top:30px;
+        margin-left:-35px;
+    }
+    .convictName{
+        font-size:12px;
+    }
+    .row-fluid [class*="span"]:first-child {
+        margin-left: 0;
+    }
+    .row-fluid .span4 {
+        width: 31.623931623931625%;
+    }
+    .row-fluid [class*="span"] {
+    display: block;
+    min-height: 30px;
+     
+    box-sizing: border-box;
+    float: left;
+    }
+}
+@media (min-width:979px) and (max-width:1200px) {
+.rowhead{
+        margin-left:75px;
+    }
+}
+@media (min-width:768px) and (max-width:979px) {
+    .span3 {
+        width: 166px;
+    }
+    .rowhead{
+        margin-left:65px;
+    }
+}
+@media (max-width: 767px) {
+    
+    .rowhead{
+        margin-left:65px;
+    }
+}
+ 
+ 
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {  
+    .rowhead{
+        margin-left:65px;
+    }  
+
+}
