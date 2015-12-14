@@ -12,31 +12,20 @@ namespace WebApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class ContentType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public ContentType()
         {
             this.Images = new HashSet<Image>();
         }
     
         public long Id { get; set; }
-        public string Email { get; set; }
-        public bool EmailConfirmed { get; set; }
-        public string Password { get; set; }
-        public string PhoneNumber { get; set; }
-        public bool PhoneNumberConfirmed { get; set; }
         public string Name { get; set; }
-        public string Address { get; set; }
-        public bool IsLocked { get; set; }
-        public int AccessFailedCount { get; set; }
-        public Nullable<long> RoleId { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<System.DateTime> DateUpdated { get; set; }
-        public string WhatsAppNumber { get; set; }
     
-        public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Image> Images { get; set; }
     }
