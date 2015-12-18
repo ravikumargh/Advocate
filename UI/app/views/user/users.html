@@ -1,0 +1,182 @@
+<div ng-init="init()">
+    <h3>Users</h3>
+
+    <div>
+
+        <button type="button" ng-click="openNewUserModel()" class="btn btn-sm btn-success">
+            <i class="glyphicon glyphicon-plus">
+            </i> Add
+        </button>
+
+        <table st-table="users" st-safe-src="rowCollection" class="table table-striped">
+            <thead>
+                <tr>
+                    <th st-sort="firstName">Name</th>
+                    <th st-sort="firstName">Email</th>
+                    <th st-sort="firstName">Role</th>
+                    <th st-sort="firstName">Phone Number</th>
+                    <th st-sort="firstName">WhatsAppNumber</th>
+                    <th st-sort="firstName">Address</th>
+                </tr>
+                <!--<tr>
+                    <th colspan="5"><input st-search="" class="form-control" placeholder="global search ..." type="text" /></th>
+                </tr>-->
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users">
+                    <td>{{user.Name}}</td>
+                    <td>{{user.Email}}</td>
+                    <td>{{getRoleDetails(this).Name}}</td>
+                    <td>{{user.PhoneNumber}}</td>
+                    <td>{{user.WhatsAppNumber}}</td>
+                    <td>{{user.Address}}</td>
+                    <td>
+                        <button type="button" ng-click="openDocumentModel(user)" class="btn btn-sm btn-danger">
+                            <i class="glyphicon glyphicon-upload">
+                            </i>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" ng-click="editUserModel(user)" class="btn btn-sm btn-danger">
+                            <i class="glyphicon glyphicon-pencil">
+                            </i>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" ng-click="deleteUserModel(user)" class="btn btn-sm btn-danger">
+                            <i class="glyphicon glyphicon-remove-circle">
+                            </i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<script type="text/ng-template" id="UserModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">New user</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="control-label" for="name">Name</label>
+            <div class="controls">
+                <input type="text" data-ng-model="selectedUser.Name" id="name" class="form-control" placeholder="Enter a user name" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="name">Email</label>
+            <div class="controls">
+                <input type="text" data-ng-model="selectedUser.Email" id="name" class="form-control" placeholder="Enter an Email" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="name">Phone Number</label>
+            <div class="controls">
+                <input type="text" data-ng-model="selectedUser.PhoneNumber" id="name" class="form-control" placeholder="Enter a Phone Number" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="name">Whats App Number</label>
+            <div class="controls">
+                <input type="text" data-ng-model="selectedUser.WhatsAppNumber" id="name" class="form-control" placeholder="Enter a Whats App Number" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="name">Address</label>
+            <div class="controls">
+                <input type="text" data-ng-model="selectedUser.Address" id="name" class="form-control" placeholder="Enter an Address" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="name">Role</label>
+            <div class="controls">
+                <select ng-model="selectedUser.RoleId" class="form-control">
+                    <option value="" ng-selected="selected">Select Role</option>
+                    <option value="{{role.Id}}" ng-repeat="role in roles">{{role.Name}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div data-ng-show="error" class="text-danger">
+                <strong data-ng-bind="error"></strong>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<div class="modal-body">
+        Name : <input id="Text1" type="text" ng-model="newuser.Name" />
+        <br />
+         Code : <input id="Text1" type="text" ng-model="newuser.Code" />
+    </div>-->
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Save</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+<script type="text/ng-template" id="DocumentModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Add documents</h3>
+    </div>
+    <div class="modal-body">
+        <!--<div class="form-group">
+            <label class="control-label" for="name">Name</label>
+            <div class="controls">
+                <input type="text" data-ng-model="selectedUser.Name" id="name" class="form-control" placeholder="Enter a user name" required>
+            </div>
+        </div>-->
+        <fieldset data-ng-repeat="document in documents">
+            <div class="form-group form-control">
+                <div class="col-md-4">
+                    <div class="controls">
+                        <select ng-model="document.documentTypeId">
+                            <option value="" ng-selected="selected">Select Document Type</option>
+                            <option value="{{documentType.Id}}" ng-repeat="documentType in $parent.documentTypes">{{documentType.Name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <!--<input type="file" id="file" name="file" documenttype={{documentType.Id}}
+                           onchange="angular.element(this).scope().getFileDetails(this)" />-->
+
+                    <input type="file" ng-file-model="document.file" />
+                </div>
+                <div class="col-md-1">
+                    <button class="remove" ng-show="$last" ng-click="removeDocument()">-</button>
+                </div>
+            </div>
+        </fieldset>
+        <button class="addfields" ng-click="addNewDocument()">Add fields</button>
+
+
+        <div class="form-group">
+            <div data-ng-show="error" class="text-danger">
+                <strong data-ng-bind="error"></strong>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<div class="modal-body">
+        Name : <input id="Text1" type="text" ng-model="newuser.Name" />
+        <br />
+         Code : <input id="Text1" type="text" ng-model="newuser.Code" />
+    </div>-->
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Upload</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+<script type="text/ng-template" id="UserDeleteConfirmationModalContent.html">
+
+    <div class="modal-body">
+        <h5>Are you sure you want to delte this item?</h5>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Delete</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
