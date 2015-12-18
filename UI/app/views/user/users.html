@@ -31,8 +31,14 @@
                     <td>{{user.WhatsAppNumber}}</td>
                     <td>{{user.Address}}</td>
                     <td>
-                        <button type="button" ng-click="openDocumentModel(user)" class="btn btn-sm btn-danger">
+                        <button type="button" ng-click="openDocumentModel(user)" class="btn btn-sm btn-danger" title="Upload documents">
                             <i class="glyphicon glyphicon-upload">
+                            </i>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" ng-click="openDocumentPreviewModel(user)" class="btn btn-sm btn-danger" title="Preview documents">
+                            <i class="glyphicon glyphicon-picture">
                             </i>
                         </button>
                     </td>
@@ -175,6 +181,31 @@
     <div class="modal-body">
         <h5>Are you sure you want to delte this item?</h5>
     </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Delete</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+<script type="text/ng-template" id="DocumentPreviewModalContent.html">
+
+    <div class="modal-body">
+
+       
+            <div class="form-group" >
+                <div class="col-md-2" data-ng-repeat="document in documents">
+                    <img ng-src="{{document}}" />
+                </div>
+            </div>
+        
+
+        <div class="form-group">
+            <div data-ng-show="error" class="text-danger">
+                <strong data-ng-bind="error"></strong>
+            </div>
+        </div>
+
+    </div>
+
     <div class="modal-footer">
         <button class="btn btn-primary" type="button" ng-click="ok()">Delete</button>
         <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>

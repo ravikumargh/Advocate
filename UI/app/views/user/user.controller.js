@@ -147,6 +147,27 @@ angular.module('yeomanApp')
           });
       };
       
+      $scope.openDocumentPreviewModel = function (user) {
+          $scope.selectedUser = angular.copy(user);
+          var modalInstance = $uibModal.open({
+              animation: $scope.animationsEnabled,
+              templateUrl: 'DocumentPreviewModalContent.html',
+              controller: 'DocumentPreviewModalContentCtrl',
+              size: 'lg',
+              animation: true,
+              resolve: {
+                  parentScope: function () {
+                      return $scope;
+                  }
+              }
+          });
+          modalInstance.result.then(function (newUser) {
+              $scope.addNew(newUser);
+          }, function () {
+              $log.info('Modal dismissed at: ' + new Date());
+          });
+      };
+
       $scope.deleteUserModel = function (user) {
           $scope.selectedUser = user;
           var modalInstance = $uibModal.open({
@@ -168,6 +189,7 @@ angular.module('yeomanApp')
               $log.info('Modal dismissed at: ' + new Date());
           });
       };
+      
       $scope.uploadFiles = function (data, documenttype, userid) {
           DocumentService.addNewDocument(data, documenttype, userid).then(function (response) {
             debugger;
@@ -176,6 +198,7 @@ angular.module('yeomanApp')
 
         });
       };
+            
   }]);
 
 
@@ -193,7 +216,35 @@ angular.module('yeomanApp').controller('UserModalInstanceCtrl', function ($scope
         $uibModalInstance.dismiss('cancel');
     };
 });
+angular.module('yeomanApp').controller('DocumentPreviewModalContentCtrl',['$scope','$uibModalInstance','parentScope','DocumentService', function ($scope, $uibModalInstance, parentScope,DocumentService) {
 
+    $scope.selectedUser = parentScope.selectedUser;
+    
+    $scope.documents=[];
+    $scope.previewDocuments = function (userid) {
+        DocumentService.getDocumentsByUserId(userid).then(function (response) {
+            for (var i = 0; i < response.data.length; i++) {
+                DocumentService.getDocumentsById(response.data[i]).then(function (responsedata) {
+                    $scope.documents.push(responsedata.data);  
+                },
+                  function (err) {
+
+                  });
+            }
+        },
+      function (err) {
+
+      });
+    };
+    $scope.previewDocuments($scope.selectedUser.Id);
+    $scope.ok = function () {
+        $uibModalInstance.close($scope.selectedUser);
+    };
+
+    $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
+}]);
 angular.module('yeomanApp').controller('DocumentModalContentCtrl', function ($scope, $uibModalInstance, parentScope) {
     $scope.documentTypes=window.documentTypes;
     $scope.documents = [{id: 'document'+documentTypes[0].Name}, {id: 'document'+documentTypes[1].Name}, {id: 'document'+documentTypes[2].Name}, {id: 'document'+documentTypes[3].Name}];

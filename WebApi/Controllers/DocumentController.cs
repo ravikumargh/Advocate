@@ -29,11 +29,30 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        public HttpResponseMessage Get(long id)
         {
-            return "value";
+            Document document = DocumentRepository.GetById(id);
+
+
+            byte[] imgData = document.Content;
+            MemoryStream ms = new MemoryStream(imgData);
+            HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
+            response.Content = new StreamContent(ms);
+            response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(document.Type);
+            return response;
+             
         }
 
+        //TODO : need to optimize.
+         
+        [HttpGet]
+        [ActionName("GetUserById")]
+        public IEnumerable<long> GetUserById(long id)
+        {
+            return DocumentRepository.GetMany(d => d.UserId == id).Select(d=>d.Id);
+             
+        }
+        
         // POST api/<controller>
         public void Post(DocumentViewModel doc)
         //public void Post()

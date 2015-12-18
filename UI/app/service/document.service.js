@@ -11,7 +11,12 @@ angular.module('yeomanApp').factory('DocumentService', ['$http', '$q', 'localSto
         dataFactory.getDocuments = function () {
             return $http.get(urlBase);
         };
-         
+        dataFactory.getDocumentsById = function (id) {
+            return $http.get(urlBase + 'get/'+id);
+        };
+        dataFactory.getDocumentsByUserId = function (id) {
+            return $http.get(urlBase + 'GetUserById/' + id);
+        };
         dataFactory.updateDocument = function (document) {
             return $http.put(urlBase,  document);
         };
