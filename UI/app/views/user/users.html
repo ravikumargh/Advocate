@@ -98,9 +98,12 @@
         <div class="form-group">
             <label class="control-label" for="name">Role</label>
             <div class="controls">
-                <select ng-model="selectedUser.RoleId" class="form-control">
+                <!--<select ng-model="selectedUser.RoleId" class="form-control">
                     <option value="" ng-selected="selected">Select Role</option>
                     <option value="{{role.Id}}" ng-repeat="role in roles">{{role.Name}}</option>
+                </select>-->
+                <select ng-model="selectedUser.RoleId" ng-options="role.Id as role.Name for role in roles" class="form-control">
+                    <option value="">Select Role</option>
                 </select>
             </div>
         </div>

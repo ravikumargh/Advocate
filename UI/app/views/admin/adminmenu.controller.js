@@ -5,14 +5,13 @@ angular.module('yeomanApp')
 
       $scope.menus = [
 		                      { active: false, text: 'Users', path: '.users' },
-		                      { active: false, text: 'Clients', path: '.clients' },
-                              { active: false, text: 'Client Types', path: '.clienttypes' },
-		                      { active: false, text: 'Departments', path: '.departments' },
+		                      //{ active: false, text: 'Clients', path: '.clients' },
+                              //{ active: false, text: 'Client Types', path: '.clienttypes' },
+		                      //{ active: false, text: 'Departments', path: '.departments' },
                               { active: false, text: 'Roles', path: '.roles' },
-                              { active: false, text: 'Statuses', path: '.statuses' },
-                              { active: false, text: 'Status reasons', path: '.statusreasons' },
-                              { active: false, text: 'Survey Types', path: '.surveytypes' },
-                              { active: false, text: 'Teams', path: '.teams' }
+                              { active: false, text: 'Cases', path: '.cases' },
+                              { active: false, text: 'My Cases', path: '.mycases' },
+                              { active: false, text: 'Firms', path: '.firms' } 
       ];
 
       $scope.$on('handleBroadcast_setActiveResourcesTab', function (handler, view) {

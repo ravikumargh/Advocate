@@ -30,5 +30,7 @@ namespace WebApi.Models
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Document> Documents { get; set; }
         public virtual DbSet<DocumentType> DocumentTypes { get; set; }
+        public virtual DbSet<Case> Cases { get; set; }
+        public virtual DbSet<Firm> Firms { get; set; }
     }
 }

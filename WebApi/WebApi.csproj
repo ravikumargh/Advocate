@@ -15,7 +15,7 @@
     <AssemblyName>Survey.WebApi</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -225,13 +225,18 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\MyCaseController.cs" />
+    <Compile Include="Controllers\CaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\FirmController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\DocumentTypeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DataAccess\CaseRepository.cs" />
     <Compile Include="DataAccess\IRepository.cs" />
     <Compile Include="DataAccess\RepositoryBase.cs" />
+    <Compile Include="DataAccess\FirmRepository.cs" />
     <Compile Include="DataAccess\RoleRepository.cs" />
     <Compile Include="DataAccess\DocumentRepository.cs" />
     <Compile Include="DataAccess\DocumentTypeRepository.cs" />
@@ -256,6 +261,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdvocateModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Case.cs">
+      <DependentUpon>AdvocateModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Document.cs">
       <DependentUpon>AdvocateModel.tt</DependentUpon>
     </Compile>
@@ -263,6 +271,9 @@
       <DependentUpon>AdvocateModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DocumentViewModel.cs" />
+    <Compile Include="Models\Firm.cs">
+      <DependentUpon>AdvocateModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Role.cs">
       <DependentUpon>AdvocateModel.tt</DependentUpon>
@@ -276,7 +287,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\AdvocateScript.sql" />
+    <Content Include="App_Data\AdvocateScript1.sql" />
+    <Content Include="App_Data\AdvocateScript2.sql" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -380,7 +392,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55997</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55910/</IISUrl>
+          <IISUrl>http://localhost/WebApi</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/ad/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

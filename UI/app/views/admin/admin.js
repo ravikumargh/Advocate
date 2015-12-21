@@ -32,14 +32,30 @@ angular.module('yeomanApp')
                 requireLogin: true
             }
         })
-        .state('admin.teams', {
-            url: '/teams',
-            templateUrl: 'views/team/teams.html',
-            controller: 'TeamController',
+        .state('admin.firms', {
+            url: '/firms',
+            templateUrl: 'views/firm/firms.html',
+            controller: 'FirmController',
             data: {
                 requireLogin: true
             }
         })
+           .state('admin.cases', {
+               url: '/cases',
+               templateUrl: 'views/case/cases.html',
+               controller: 'CaseController',
+               data: {
+                   requireLogin: true
+               }
+           })
+          .state('admin.mycases', {
+              url: '/mycases',
+              templateUrl: 'views/mycase/mycases.html',
+              controller: 'MyCaseController',
+              data: {
+                  requireLogin: true
+              }
+          })
           .state('admin.statuses', {
               url: '/statuses',
               templateUrl: 'views/status/statuses.html',

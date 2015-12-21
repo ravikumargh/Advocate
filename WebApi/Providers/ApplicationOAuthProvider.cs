@@ -11,7 +11,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using WebApi.Models;
 using WebApi.DataAccess;
- 
+
 
 namespace WebApi.Providers
 {
@@ -23,7 +23,7 @@ namespace WebApi.Providers
 
         private string PublicClientId;
 
-        public ApplicationOAuthProvider(string publicClientId )
+        public ApplicationOAuthProvider(string publicClientId)
         {
             if (publicClientId == null)
             {
@@ -34,12 +34,12 @@ namespace WebApi.Providers
             this.roleRepository = new RoleRepository();
         }
 
-        
+
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             var user = userRepository.Get(w => w.Email == context.UserName && w.Password == context.Password);
-            
+
             //var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
             //ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
@@ -53,9 +53,9 @@ namespace WebApi.Providers
             ClaimsIdentity oAuthIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
             ClaimsIdentity cookiesIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
             oAuthIdentity.AddClaim(new Claim(ClaimTypes.Name, user.Email));
-            
-                oAuthIdentity.AddClaim(new Claim(ClaimTypes.Role, user.RoleId.ToString()));
-            
+            oAuthIdentity.AddClaim(new Claim("Id", user.Id.ToString()));
+            oAuthIdentity.AddClaim(new Claim(ClaimTypes.Role, user.RoleId.ToString()));
+
 
             //ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager,
             //   OAuthDefaults.AuthenticationType);

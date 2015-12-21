@@ -18,6 +18,8 @@ namespace WebApi.Models
         public User()
         {
             this.Documents = new HashSet<Document>();
+            this.Cases = new HashSet<Case>();
+            this.Cases1 = new HashSet<Case>();
         }
     
         public long Id { get; set; }
@@ -39,5 +41,9 @@ namespace WebApi.Models
         public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Document> Documents { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Case> Cases { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Case> Cases1 { get; set; }
     }
 }

@@ -12,6 +12,10 @@
         <EntityTypeShape EntityType="AdvocateModel.DocumentType" Width="1.5" PointX="3" PointY="7" />
         <AssociationConnector Association="AdvocateModel.FK_Documents_DocumentType" />
         <AssociationConnector Association="AdvocateModel.FK_Documents_Users" />
+        <EntityTypeShape EntityType="AdvocateModel.Case" Width="1.5" PointX="5.25" PointY="6" />
+        <EntityTypeShape EntityType="AdvocateModel.Firm" Width="1.5" PointX="7.375" PointY="0.75" />
+        <AssociationConnector Association="AdvocateModel.FK_Cases_Users" />
+        <AssociationConnector Association="AdvocateModel.FK_Cases_Users1" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

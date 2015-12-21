@@ -1,0 +1,133 @@
+<div ng-init="init()">
+    <h3>Cases</h3>
+
+    <div>
+
+        <button type="button" ng-click="openNewCaseModel()" class="btn btn-sm btn-success">
+            <i class="glyphicon glyphicon-plus">
+            </i> Add
+        </button>
+
+        <table st-table="cases" st-safe-src="rowCollection" class="table table-striped">
+            <thead>
+                <tr>
+                    <th st-sort="firstName">Name</th>
+                    <th st-sort="firstName">Description</th>
+                    <th st-sort="firstName">Client</th>
+                    <th st-sort="firstName">Advocate</th>
+                </tr>
+                <!--<tr>
+                    <th colspan="5"><input st-search="" class="form-control" placeholder="global search ..." type="text" /></th>
+                </tr>-->
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in cases">
+                    <td>{{row.Number}}</td>
+                    <td>{{row.Description}}</td>
+                    <td>{{getClientDetails(this).Name}}</td>
+                    <td>{{getAdvocateDetails(this).Name}}</td>
+                    <td>
+                        <button type="button" ng-click="addAdvocatesToCaseModel(row)" title="Asign to advocate" class="btn btn-sm btn-danger">
+                            <i class="glyphicon glyphicon-education">
+                            </i>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" ng-click="editCaseModel(row)" class="btn btn-sm btn-danger">
+                            <i class="glyphicon glyphicon-pencil">
+                            </i>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" ng-click="deleteCaseModel(row)" class="btn btn-sm btn-danger">
+                            <i class="glyphicon glyphicon-remove-circle">
+                            </i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<script type="text/ng-template" id="CaseModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">New case</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="control-label" for="name">Number</label>
+            <div class="controls">
+                <input type="text" data-ng-model="selectedCase.Number" id="name" class="form-control" placeholder="Enter a case number" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="name">Case Description</label>
+            <div class="controls">
+                <input type="text" data-ng-model="selectedCase.Description" id="name" class="form-control" placeholder="Enter a case Description" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="name">Client</label>
+            <div class="controls">
+                <select ng-model="selectedCase.ClientId" ng-options="client.Id as client.Name for client in clients" class="form-control">
+                    <option value="">Select Client</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div data-ng-show="error" class="text-danger">
+                <strong data-ng-bind="error"></strong>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Save</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="AdvocatesToCaseModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Asign advocate</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="control-label" for="name">Number : {{selectedCase.Number}}</label>
+        </div>
+         
+        <div class="form-group">
+            <label class="control-label" for="name">Advocate</label>
+            <div class="controls">
+                <select ng-model="selectedCase.AdvocateId" ng-options="client.Id as client.Name for client in clients" class="form-control">
+                    <option value="">Select Advocate</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div data-ng-show="error" class="text-danger">
+                <strong data-ng-bind="error"></strong>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Save</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="CaseDeleteConfirmationModalContent.html">
+
+    <div class="modal-body">
+        <h5>Are you sure you want to delte this item?</h5>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Delete</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>

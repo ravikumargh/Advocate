@@ -63,7 +63,7 @@ var app = angular
        //    redirectTo: '/'
        //});
  });
-var serviceBase = 'http://localhost:55910/';
+var serviceBase = 'http://localhost/WebApi/';
 app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,
     clientId: 'ngAuthApp'

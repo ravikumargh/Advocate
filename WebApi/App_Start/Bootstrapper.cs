@@ -26,6 +26,8 @@ namespace WebApi
             container.RegisterType<IRepository<User>, UserRepository>();
             container.RegisterType<IRepository<Document>, DocumentRepository>();
             container.RegisterType<IRepository<DocumentType>, DocumentTypeRepository>();
+            container.RegisterType<ICaseRepository<Case>, CaseRepository<Case>>();
+            container.RegisterType<IRepository<Firm>, FirmRepository>();
             return container;
         }
     }
