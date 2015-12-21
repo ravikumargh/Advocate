@@ -68,6 +68,12 @@ namespace WebApi.DataAccess
         {
             return DbContext.Cases.Where(w => w.AdvocateId == id);
         }
+
+
+        public IEnumerable<Case> GetByClientId(long id)
+        {
+            return DbContext.Cases.Where(w => w.ClientId == id);
+        }
     }
 
     public interface ICaseRepository<T> : IRepository<T>
@@ -75,6 +81,8 @@ namespace WebApi.DataAccess
     {
 
         IEnumerable<Case> GetByAdvocateId(long p);
+
+        IEnumerable<Case> GetByClientId(long p);
     }
 
 }

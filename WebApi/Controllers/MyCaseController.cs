@@ -10,7 +10,7 @@ using WebApi.Models;
 
 namespace WebApi.Controllers
 {
-    public class MyCaseController : ApiController
+    public class MyCaseController : BaseApiController
     {
         //ICaseService<Case> caseService;
         private ICaseRepository<Case> caseRepository;
@@ -22,9 +22,14 @@ namespace WebApi.Controllers
         // GET: api/Case
         public IEnumerable<Case> Get()
         {
-            var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
-            var Id = claimsIdentity.Claims.Where(r => r.Type == "Id").FirstOrDefault();
-            return caseRepository.GetByAdvocateId(Convert.ToInt64(Id.Value));
+            if (CurrentUser.RoleId == Convert.ToInt64(Role.SuperAdmin))
+            {                
+                return caseRepository.GetByAdvocateId(CurrentUser.Id);
+            }
+            else
+            {
+                   return caseRepository.GetByClientId(CurrentUser.Id);
+            }
         }
 
         // GET: api/Case/5
